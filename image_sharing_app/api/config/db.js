@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    const uri =
-      "mongodb+srv://hamzehsayeh:hamzeh.s2001@cluster0.hzvwt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    const uri = process.env.MONGO_URL;
 
     // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+
+    mongoose.set("strictQuery", true);
+
     await mongoose.connect(
       uri,
       {

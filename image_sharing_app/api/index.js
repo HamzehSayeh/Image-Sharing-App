@@ -9,8 +9,9 @@ dotenv.config();
 connectDB();
 app.use(express.json);
 
-const port = 8080;
-app.listen(port, () => {
-  console.log(`Server running on https://localhost:${port}`);
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server running on https://localhost:${PORT}`);
 });
+
 module.exports = app;
